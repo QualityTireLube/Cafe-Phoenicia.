@@ -1,0 +1,182 @@
+@import url('//fonts.googleapis.com/css2?family=Caladea:ital,wght@0,700;1,400;1,700&display=swap');
+
+/*
+
+font-family: 'Caladea';
+
+Headings, Buttons / Subheadings, Address: font-family: 'Caladea', font-family: 'Caladea', serif; (Bold / Bold Italic)
+
+font-family: 'Caladea';
+*/
+
+body {
+  font-family: 'Caladea';
+}
+/* put under the comment if it's NOT sinle page website */
+.navbar,
+.nav-v2,
+.nav-v4,
+.nav-v2-home-btn,
+.navbar-fixed-bottom.nav-v1 {
+  display: none !important;
+}
+.on-cover-content .locations-holder {
+  padding: 65px 0 75px;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+}
+.on-cover-content .section-wrapper {
+  width: 1300px;
+  max-width: 100%;
+}
+.on-cover-content .section-wrapper .container {
+  width: 100%;
+}
+.on-cover-content .section-wrapper .container .main-logo {
+  margin-bottom: 50px;
+}
+.on-cover-content .section-wrapper .container h1 {
+  font-family: 'Caladea';
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 2.8em;
+}
+.on-cover-content .section-wrapper .container h2 {
+  margin-bottom: 50px;
+  font-family: 'Caladea';
+  text-transform: none;
+  color: #000;
+  font-style: italic;
+  font-weight: 700;
+}
+.on-cover-content.content-center.animate-content p {
+  font-family: 'Caladea';
+  font-size: 1.2em;
+  line-height: 1.1;
+  color: #000;
+  font-style: italic;
+  font-weight: 700;
+}
+
+#home_page_cover {
+  background-color: #000;
+  background-image: url(../images/landing_back.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.custom-temp-btn,
+.on-cover-content .section-wrapper a.custom-temp-btn {
+  padding: 4px 15px 6px 15px;
+  text-transform: uppercase;
+  background-color: #000;
+  background: #000;
+  border: 2px solid #000;
+  color: #fff;
+  font-family: 'Caladea';
+  font-size: 22px;
+  box-shadow: none;
+  border-radius: 0;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.on-cover-content .section-wrapper a.phone-link {
+  padding: 0;
+  margin-top: 5px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 19px;
+}
+.on-cover-content .section-wrapper a.phone-link:hover {
+  color: #af8754;
+}
+.on-cover-content .section-wrapper a.custom-temp-btn {
+  width: 240px;
+  max-width: 100%;
+  margin: 0 5px;
+}
+.custom-temp-btn,
+.on-cover-content .section-wrapper a.custom-temp-btn:hover,
+.on-cover-content .section-wrapper a.custom-temp-btn:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background: transparent;
+  border: 2px solid #000;
+  color: #000;
+  opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  .on-cover-content .section-wrapper .container {
+      width: 95%;
+  }
+  .on-cover-content .section-wrapper .container .main-logo {
+    max-width: 300px;
+    margin-bottom: 0;
+  }
+  .on-cover-content .section-wrapper .container h1 {
+    font-size: 2.2em;
+  }
+}
+@media (max-width: 767px) {
+  .on-cover-content .section-wrapper .container {
+    width: 75%;
+  }
+  .on-cover-content .locations-holder {
+    padding: 0 0 10px;
+  }
+  .on-cover-content .section-wrapper .container h1 {
+    font-size: 2em;
+  }
+  .on-cover-content .section-wrapper .container h2 {
+    margin-bottom: 20px;
+    font-size: 1.4em;
+  }
+  .home-page .header {
+    height: auto;
+    overflow-y: auto;
+  }
+  #home_page_cover {
+    min-height: 100vh;
+  }
+  .on-cover-content .section-wrapper {
+    padding: 2em 0;
+  }
+  .custom-temp-btn,
+  .on-cover-content .section-wrapper a.custom-temp-btn {
+    font-size: 20px;
+  }
+  .on-cover-content .section-wrapper .container img {
+    width: 300px;
+    max-width: 100%;
+  }
+  .on-cover-content .section-wrapper a.custom-temp-btn {
+    display: block;
+    width: 180px;
+    max-width: 100%;
+  }
+  .on-cover-content .section-wrapper .container .main-logo {
+    max-width: 240px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .on-cover-content .section-wrapper a.custom-temp-btn {
+    margin: 10px auto 10px;
+  }
+}
+@media (max-width: 360px) {
+  .on-cover-content .section-wrapper .container .main-logo {
+    max-width: 100px;
+    margin-bottom: 15px;
+  }
+  .on-cover-content .section-wrapper .container img,
+  .on-cover-content .section-wrapper a.custom-temp-btn {
+    width: 260px;
+  }
+  .on-cover-content .section-wrapper a.custom-temp-btn {
+    padding: 8px 10px;
+  }
+}
