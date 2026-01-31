@@ -1,0 +1,29 @@
+{
+  "name": "cafe-phoenicia-offline",
+  "version": "1.0.0",
+  "description": "Offline-capable website for Cafe Phoenicia - Central, Zachary, and Denham Springs locations",
+  "main": "index.html",
+  "scripts": {
+    "build": "python3 build_fully_offline.py",
+    "test": "bash test_offline.sh",
+    "serve": "python3 -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/Cafe-Phoenicia.git"
+  },
+  "keywords": [
+    "cafe",
+    "phoenicia",
+    "restaurant",
+    "offline",
+    "static-site"
+  ],
+  "author": "Cafe Phoenicia",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.7.0"
+  }
+}

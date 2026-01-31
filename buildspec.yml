@@ -1,0 +1,38 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo "Installing Python dependencies..."
+      - pip3 install --upgrade pip
+      
+  pre_build:
+    commands:
+      - echo "Pre-build phase started on `date`"
+      - echo "Checking Python version..."
+      - python3 --version
+      
+  build:
+    commands:
+      - echo "Build phase started on `date`"
+      - echo "Building offline site..."
+      - python3 build_fully_offline.py
+      - echo "Build completed successfully!"
+      
+  post_build:
+    commands:
+      - echo "Post-build phase started on `date`"
+      - echo "Verifying build artifacts..."
+      - ls -la
+      - echo "Build finished on `date`"
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: '.'
+  
+cache:
+  paths:
+    - '/root/.cache/pip/**/*'

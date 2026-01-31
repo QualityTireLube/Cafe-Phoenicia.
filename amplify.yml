@@ -1,0 +1,19 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Installing Python dependencies..."
+        - pip3 install --upgrade pip
+    build:
+      commands:
+        - echo "Building offline site..."
+        - python3 build_fully_offline.py
+        - echo "Build complete!"
+  artifacts:
+    baseDirectory: /
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*

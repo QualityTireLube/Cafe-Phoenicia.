@@ -1,0 +1,65 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Amplify
+amplify/
+.amplifyrc
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Source directories (keep processed output only)
+*.cafephoenicia.com/
+url_mapping.txt
+index_original.html
+"Cafe Phoenicia main page.html"
+"Cafe Phoenicia.html"
+N20155.pdf
+
+# Keep these for rebuilding if needed
+# !central.cafephoenicia.com/
+# !zachary.cafephoenicia.com/
+# !denhamsprings.cafephoenicia.com/
