@@ -9,6 +9,8 @@ frontend:
       commands:
         - echo "Building offline site..."
         - python3 build_fully_offline.py
+        - echo "Fixing asset paths for Amplify..."
+        - python3 fix_paths_for_amplify.py
         - echo "Build complete!"
   artifacts:
     baseDirectory: /

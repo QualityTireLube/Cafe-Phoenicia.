@@ -1,172 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafe Phoenicia - Choose Your Location</title>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="Cafe Phoenicia - Central, Zachary, and Denham Springs locations" name="description"/>
+    <title>Cafe Phoenicia</title>
+    
+    <!-- Favicons -->
+    <link href="assets/images/homepage_apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+    <link href="assets/images/homepage_favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+    <link href="assets/images/homepage_favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+    <meta content="#ffffff" name="msapplication-TileColor"/>
+    <meta content="#ffffff" name="theme-color"/>
+    
+    <!-- CSS -->
+    <link href="assets/css/homepage_lib_bootstrap_css_bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/homepage_lib_gallery_gallery.css" rel="stylesheet"/>
+    <link href="assets/css/homepage_lib_fancybox_source_jquery.fancybox.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/homepage_lib_fancybox_source_helpers_jquery.fancybox-thumbs.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/homepage_lib_uikit_css_uikit.docs.min.css" rel="stylesheet"/>
+    <link href="assets/css/homepage_lib_uikit_css_slidenav.css" rel="stylesheet"/>
+    <link href="assets/css/homepage_lib_font-awesome-4.7.0_css_font-awesome.min.css" rel="stylesheet"/>
+    <link href="assets/css/homepage_lib_hover_css_css_hover-min.css" rel="stylesheet"/>
+    <link href="assets/css/homepage_lib_owlcarousel_owl.carousel.min.css" rel="stylesheet"/>
+    <link href="assets/css/homepage_lib_owlcarousel_owl.theme.default.min.css" rel="stylesheet"/>
+    <link href="assets/css/leaflet_leaflet.css" rel="stylesheet"/>
+    <link href="assets/css/homepage_css_style.css" rel="stylesheet"/>
+    <link href="assets/css/homepage_lib_icons_font_css_social_icons.css" rel="stylesheet"/>
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Custom navigation styles */
+        .navbar.nav-v4 {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: none;
+            margin-bottom: 0;
         }
         
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        .navbar.nav-v4 .navbar-header {
+            float: left;
+        }
+        
+        .navbar.nav-v4 .header-logo {
+            float: left;
+            padding: 15px;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .navbar.nav-v4 .header-logo-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .navbar.nav-v4 .socialnav {
+            float: right;
+            list-style: none;
+            margin: 0;
+            padding: 15px;
+        }
+        
+        .navbar.nav-v4 .social-icon {
+            color: #fff;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .navbar.nav-v4 .social-icon:hover {
+            color: #d4af37;
+        }
+        
+        /* Header/Hero section */
+        .header {
             min-height: 100vh;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            position: relative;
         }
         
-        .container {
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+        }
+        
+        .on-cover-content {
+            position: relative;
+            z-index: 10;
             text-align: center;
             color: #fff;
-            max-width: 1200px;
+            padding: 40px 20px;
+        }
+        
+        .main-logo {
+            max-width: 400px;
             width: 100%;
-        }
-        
-        .logo {
-            max-width: 300px;
-            margin: 0 auto 30px;
-            display: block;
-        }
-        
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #d4af37;
-            font-weight: normal;
-        }
-        
-        h2 {
-            font-size: 1.5em;
-            margin-bottom: 50px;
-            font-weight: normal;
-            color: #ccc;
-        }
-        
-        .locations {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
+            height: auto;
             margin-bottom: 40px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
         }
         
-        .location-card {
-            background: rgba(255,255,255,0.1);
+        .on-cover-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: #fff;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .locations-holder {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .locations-holder > div {
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             padding: 40px 30px;
-            width: 300px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            min-width: 280px;
+            max-width: 320px;
+            flex: 1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .location-card:hover {
+        .locations-holder > div:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
         
-        .location-card h3 {
-            color: #d4af37;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            font-weight: normal;
+        .locations-holder h1 {
+            color: #333;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
         
-        .location-card p {
-            color: #ccc;
-            margin-bottom: 25px;
+        .locations-holder p {
+            color: #666;
+            font-size: 1.1em;
             line-height: 1.6;
-            font-size: 1.1em;
+            margin-bottom: 30px;
         }
         
-        .visit-btn {
+        .custom-temp-btn {
             display: inline-block;
-            background: #d4af37;
-            color: #1a1a2e;
-            padding: 12px 35px;
-            border-radius: 25px;
+            padding: 15px 40px;
+            background-color: #d4af37;
+            color: #fff;
             text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2em;
             font-weight: bold;
-            font-size: 1.1em;
-            transition: background 0.3s ease, transform 0.2s ease;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .visit-btn:hover {
-            background: #f4cf67;
-            color: #1a1a2e;
+        .custom-temp-btn:hover {
+            background-color: #b8941f;
+            color: #fff;
             text-decoration: none;
             transform: scale(1.05);
         }
         
+        .visuallyhidden {
+            position: absolute;
+            left: -10000px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .on-cover-content h2 {
+                font-size: 1.8em;
+                margin-bottom: 40px;
+            }
+            
+            .main-logo {
+                max-width: 280px;
+                margin-bottom: 30px;
+            }
+            
+            .locations-holder {
+                gap: 20px;
+            }
+            
+            .locations-holder > div {
+                min-width: 100%;
+                max-width: 400px;
+            }
+            
+            .locations-holder h1 {
+                font-size: 1.8em;
+            }
+            
+            .custom-temp-btn {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+        }
+        
+        /* Offline notice */
         .offline-notice {
-            margin-top: 40px;
-            padding: 20px;
-            background: rgba(255,193,7,0.2);
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 193, 7, 0.95);
+            color: #000;
+            padding: 15px 20px;
             border-radius: 10px;
-            color: #ffc107;
-            border: 1px solid rgba(255,193,7,0.3);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            max-width: 300px;
+            font-size: 0.9em;
+            z-index: 1000;
         }
         
         .offline-notice strong {
+            display: block;
+            margin-bottom: 5px;
             font-size: 1.1em;
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            
-            h2 {
-                font-size: 1.2em;
-            }
-            
-            .location-card {
-                width: 100%;
-                max-width: 350px;
+            .offline-notice {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Cafe Phoenicia</h1>
-        <h2>Choose Your Location</h2>
-        
-        <div class="locations">
-            <div class="location-card">
-                <h3>Central</h3>
-                <p>14319 Wax Rd<br>Baton Rouge, LA</p>
-                <a href="central/index.html" class="visit-btn">Visit Site</a>
-            </div>
-            
-            <div class="location-card">
-                <h3>Zachary</h3>
-                <p>5647 Main St<br>Zachary, LA</p>
-                <a href="zachary/index.html" class="visit-btn">Visit Site</a>
-            </div>
-            
-            <div class="location-card">
-                <h3>Denham Springs</h3>
-                <p>240 Range 12 Blvd Ste 111<br>Denham Springs, LA</p>
-                <a href="denhamsprings/index.html" class="visit-btn">Visit Site</a>
-            </div>
-        </div>
-        
-        <div class="offline-notice">
-            <strong>⚠️ Offline Mode</strong><br><br>
-            This is an offline version of the Cafe Phoenicia website. 
-            Online ordering, reservations, and form submissions are not available. 
-            Please call the restaurant directly to place orders or make reservations.
-        </div>
+    <!-- Skip to content link for accessibility -->
+    <div class="visuallyhidden" id="skip">
+        <a href="#content">Skip to Main Content</a>
     </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar nav-v4 navbar-fixed-top" id="navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-target="#navbar-collapse-1" data-toggle="collapse" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="header-logo" href="/">
+                    <div class="header-logo-text">Cafe Phoenicia</div>
+                </a>
+            </div>
+            
+            <ul class="socialnav">
+                <li class="social-links">
+                    <a class="pull-left" href="https://www.facebook.com/cafephoenicia" target="_blank" title="Facebook">
+                        <i class="social-icon icon-facebook_icon"></i>
+                        <span class="visuallyhidden">Facebook page</span>
+                    </a>
+                    <a class="pull-left contact-icon" href="https://www.instagram.com/cafephoenicia" target="_blank" title="Instagram">
+                        <i class="social-icon icon-instagram_icon"></i>
+                        <span class="visuallyhidden">Instagram page</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero/Header Section -->
+    <header class="header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920');">
+        <div id="home_page_cover" style="height:100%; width:100%;">
+            <div class="on-cover-content animate-content content-center">
+                <div class="section-wrapper">
+                    <div class="container">
+                        <h1 class="visuallyhidden">Cafe Phoenicia / Landing</h1>
+                        
+                        <img alt="Cafe Phoenicia logo" class="main-logo" src="assets/images/homepage_custom_logo.png"/>
+                        
+                        <h2>Choose your destination:</h2>
+                        
+                        <div class="locations-holder">
+                            <div>
+                                <h1>Central</h1>
+                                <p>14319 Wax Rd,<br/> Baton Rouge, LA</p>
+                                <a class="custom-temp-btn hvr-fade" href="central/index.html">Visit</a>
+                            </div>
+                            
+                            <div>
+                                <h1>Zachary</h1>
+                                <p>5647 Main St,<br/> Zachary, LA</p>
+                                <a class="custom-temp-btn hvr-fade" href="zachary/index.html">Visit</a>
+                            </div>
+                            
+                            <div>
+                                <h1>Denham Springs</h1>
+                                <p>240 Range 12 Blvd Ste 111,<br/> Denham Springs, LA</p>
+                                <a class="custom-temp-btn hvr-fade" href="denhamsprings/index.html">Visit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main content (empty for landing page) -->
+    <main id="content" role="main"></main>
+    
+    <!-- Offline notice -->
+    <div class="offline-notice">
+        <strong>⚠️ Offline Mode</strong>
+        Online ordering and reservations are not available. Please call the restaurant directly.
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/homepage_lib_jquery_jquery.min.js"></script>
+    <script src="assets/js/homepage_lib_jquery_jquery.browser.min.js"></script>
+    <script src="assets/js/homepage_lib_bootstrap_js_bootstrap.min.js"></script>
+    <script src="assets/js/homepage_lib_owlcarousel_owl.carousel.min.js"></script>
+    <script src="assets/js/homepage_lib_masonry_masonry.pkgd.min.js"></script>
+    
+    <script>
+        // Smooth scroll to top on logo click
+        $('.header-logo').click(function(event) {
+            if (window.location.pathname == '/' || window.location.pathname == '/index.html') {
+                event.preventDefault();
+                $('html, body').animate({ scrollTop: 0 }, 800);
+            }
+        });
+        
+        // Navbar scroll effect
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 50) {
+                $('.navbar').css('background-color', 'rgba(0, 0, 0, 0.95)');
+            } else {
+                $('.navbar').css('background-color', 'rgba(0, 0, 0, 0.8)');
+            }
+        });
+    </script>
 </body>
 </html>
