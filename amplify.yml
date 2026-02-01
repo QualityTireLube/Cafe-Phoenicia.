@@ -19,3 +19,73 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+
+# Custom headers and redirects
+customHeaders:
+  - pattern: '**/*'
+    headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=31536000, immutable'
+      - key: 'X-Content-Type-Options'
+        value: 'nosniff'
+      - key: 'X-Frame-Options'
+        value: 'SAMEORIGIN'
+
+# URL Rewrites - Remove .html extension
+redirects:
+  # Redirect .html URLs to clean URLs (301 permanent redirect)
+  - source: '/<*>.html'
+    target: '/<*>'
+    status: '301'
+  
+  # Serve .html files for clean URLs (200 rewrite, not redirect)
+  - source: '/<*>'
+    target: '/<*>.html'
+    status: '200'
+    condition: '<US>'
+  
+  # Handle subdirectory clean URLs
+  - source: '/central/<*>.html'
+    target: '/central/<*>'
+    status: '301'
+  
+  - source: '/central/<*>'
+    target: '/central/<*>.html'
+    status: '200'
+    condition: '<US>'
+  
+  - source: '/zachary/<*>.html'
+    target: '/zachary/<*>'
+    status: '301'
+  
+  - source: '/zachary/<*>'
+    target: '/zachary/<*>.html'
+    status: '200'
+    condition: '<US>'
+  
+  - source: '/denhamsprings/<*>.html'
+    target: '/denhamsprings/<*>'
+    status: '301'
+  
+  - source: '/denhamsprings/<*>'
+    target: '/denhamsprings/<*>.html'
+    status: '200'
+    condition: '<US>'
+  
+  # Handle index files
+  - source: '/central'
+    target: '/central/index.html'
+    status: '200'
+  
+  - source: '/zachary'
+    target: '/zachary/index.html'
+    status: '200'
+  
+  - source: '/denhamsprings'
+    target: '/denhamsprings/index.html'
+    status: '200'
+  
+  # Fallback for 404
+  - source: '</^[^.]+$|\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|woff2|ttf|map|json|webp)$)([^.]+$)/>'
+    target: '/index.html'
+    status: '404'
